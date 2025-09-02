@@ -121,3 +121,63 @@ function toggleSubmenusForMobile(){
 }
 document.addEventListener('DOMContentLoaded', toggleSubmenusForMobile);
 
+// Zlexy Cookies Consent
+(() => {
+  const KEY = 'zlexyConsent'; // "granted" | "denied"
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+
+  const getConsent = () => localStorage.getItem(KEY);
+  const setConsent = (value) => {
+    localStorage.setItem(KEY, value);
+    banner.setAttribute('data-show', 'false');
+    banner.hidden = true;
+    // Fire an event for anything that should react to consent
+    window.dispatchEvent(new CustomEvent('consent:changed', { detail: { value } }));
+  };
+
+  // Expose a tiny helper if you need to check from other scripts
+  window.zlexyConsentGranted = () => getConsent() === 'granted';
+
+  // Show banner only if not decided before
+  const current = getConsent();
+  if (current !== 'granted' && current !== 'denied') {
+    banner.hidden = false;
+    banner.setAttribute('data-show', 'true');
+  }
+
+  // Wire actions
+  acceptBtn?.addEventListener('click', () => {
+    setConsent('granted');
+    // Place deferred loaders here or listen to the event below
+    // loadAnalytics(); // optional, see stub below
+  });
+
+  declineBtn?.addEventListener('click', () => setConsent('denied'));
+
+  // Example: defer analytics until consent is granted
+  function loadAnalytics() {
+    if (!window.zlexyConsentGranted()) return;
+    // --- Google Analytics example (gtag) ---
+    // const s = document.createElement('script');
+    // s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+    // s.async = true;
+    // document.head.appendChild(s);
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag(){ dataLayer.push(arguments); }
+    // window.gtag = gtag;
+    // gtag('js', new Date());
+    // gtag('config', 'G-XXXXXXX', { anonymize_ip: true });
+  }
+
+  // If the user had previously accepted (e.g., on another page load), you can initialize here:
+  if (current === 'granted') {
+    // loadAnalytics(); // uncomment if you’re using analytics
+  }
+
+  // Optional: listen globally elsewhere
+  // window.addEventListener('consent:changed', (e) => { if (e.detail.value === 'granted') loadAnalytics(); });
+})();
