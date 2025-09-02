@@ -549,3 +549,110 @@ backToTop span{font-size:18px;line-height:1}
   .compare { grid-template-columns: 1fr; }
   .compare dl > div { grid-template-columns: 130px 1fr; }
 }
+
+/* --- Form Spacing Tweaks (Freelancer Apply Form) --- */
+.form-field {
+  margin-bottom: 1.2rem;
+}
+.form-field label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+/* Side-by-side inputs (Full Name / Email) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Checkbox row alignment */
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+.checkbox-row label {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* CTA spacing */
+form .cta {
+  margin-top: 1.5rem;
+}
+
+/* --- Form Input Interactions --- */
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="file"],
+.form-field textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.form-field input:hover,
+.form-field textarea:hover {
+  border-color: #999;
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(0, 150, 80, 0.15);
+  outline: none;
+}
+
+/* Checkbox accent (modern browsers) */
+.checkbox-row input[type="checkbox"] {
+  accent-color: var(--green);
+}
+
+/* --- File Upload Styling --- */
+/* Hide native file input; we’ll trigger it via the label */
+.form-field input[type="file"] {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Make the label read like: "Upload CV (PDF/DOC) [Choose File]" */
+.form-field label[for="cv"]::after {
+  content: "Choose File";
+  display: inline-block;
+  margin-left: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  background: var(--green);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.form-field label[for="cv"]::after:hover {
+  background: #00804d;
+}
+
+/* File name preview (sits next to the button) */
+.file-name {
+  display: inline-block;
+  margin-left: 0.75rem;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+  max-width: 50ch;          /* keep it from overflowing the form */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* fallback if JS didn’t run for any reason */
+}
+
+/* Responsive: stack the two-column grid on small screens */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -181,3 +181,48 @@ document.addEventListener('DOMContentLoaded', toggleSubmenusForMobile);
   // Optional: listen globally elsewhere
   // window.addEventListener('consent:changed', (e) => { if (e.detail.value === 'granted') loadAnalytics(); });
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cvInput = document.getElementById("cv");
+  const cvFileName = document.getElementById("cv-filename");
+  const cvLabel = document.querySelector('label[for="cv"]');
+
+  // Clicking the "Choose File" pseudo-button triggers the hidden input
+  if (cvLabel && cvInput) {
+    cvLabel.addEventListener("click", function (e) {
+      // If user clicks the text part of the label, let it also open the picker
+      const afterButtonClicked = (e.target === cvLabel);
+      if (afterButtonClicked) cvInput.click();
+    });
+  }
+
+  // Utility: middle-ellipsis truncation that tries to keep the extension visible
+  function middleEllipsisFilename(name, max = 45) {
+    if (name.length <= max) return name;
+
+    // Try to preserve extension
+    const lastDot = name.lastIndexOf(".");
+    const ext = lastDot > 0 ? name.slice(lastDot) : "";
+    const base = lastDot > 0 ? name.slice(0, lastDot) : name;
+
+    const reserve = Math.max(8, ext.length + 3); // space for "…"+ext
+    const keep = Math.max(6, Math.floor((max - reserve) / 2));
+
+    const start = base.slice(0, keep);
+    const end = base.slice(-keep);
+    return `${start}…${end}${ext}`;
+  }
+
+  if (cvInput && cvFileName) {
+    cvInput.addEventListener("change", function () {
+      if (cvInput.files && cvInput.files.length > 0) {
+        const fullName = cvInput.files[0].name;
+        cvFileName.textContent = middleEllipsisFilename(fullName, 45);
+        cvFileName.title = fullName; // show full name on hover
+      } else {
+        cvFileName.textContent = "No file chosen";
+        cvFileName.title = "";
+      }
+    });
+  }
+});
