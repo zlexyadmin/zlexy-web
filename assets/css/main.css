@@ -738,3 +738,25 @@ textarea[name="notes"] {
 
 /* Utility for simple hide/show via JS */
 .is-hidden { display: none !important; }
+
+/* --- Fix: keep consent checkbox + text on the same line --- */
+.form-field.checkbox-row {
+  display: flex;
+  align-items: flex-start;   /* top-align long text */
+  gap: 0.6rem;
+  flex-wrap: nowrap;         /* don't let the checkbox wrap to its own line */
+}
+
+.form-field.checkbox-row input[type="checkbox"] {
+  flex: 0 0 auto;            /* stay natural size */
+  width: auto;               /* guard against global input { width:100% } */
+  margin-top: 0.15rem;       /* optically align with first line of text */
+}
+
+.form-field.checkbox-row label {
+  display: inline;           /* override any label { display:block } */
+  margin: 0;
+  line-height: 1.45;
+  flex: 1 1 auto;            /* let the text wrap inside the remaining width */
+  white-space: normal;       /* ensure long text wraps instead of pushing layout */
+}
