@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <title>Pricing • Zlexy</title>
+  <meta name="description" content="Zlexy pricing is transparent and formula-based: base rate, language complexity, service type, optional add-ons, rush fees, and volume discounts, converted to your preferred currency.">
+</head>
+<body>
+
+<include src="partials/header.html"></include>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>How Our Pricing Works</h1>
+      <p class="lead">Clear, predictable, and tailored to your content. No surprises—just the logic behind your quote.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Logic (from Pricing_Logic.docx) -->
+  <section class="section">
+    <div class="container grid-2">
+
+      <div class="card">
+        <h2>The Formula</h2>
+        <p class="muted">We price projects using a simple structure that adapts to language and service needs.</p>
+        <p><strong>Estimate</strong> = <em>Base Rate</em> × <em>Language Complexity</em> × <em>Service Type</em> <em>± Volume Discount</em> + <em>Add-ons</em> + <em>Rush (if any)</em>.</p>
+        <ul>
+          <li><strong>Base Rate (admin-configurable):</strong> typically €0.10–€0.25 per word. :contentReference[oaicite:0]{index=0}</li>
+          <li><strong>Language Complexity (multiplier):</strong> 1.0× / 1.2× / 1.5× based on the language pair. :contentReference[oaicite:1]{index=1}</li>
+          <li><strong>Service Type (multiplier):</strong> 1.0×–1.4× depending on the service (e.g., translation, LQA, transcreation). :contentReference[oaicite:2]{index=2}</li>
+          <li><strong>Add-ons (flat or %):</strong> e.g., +10%, +€50, +€100 for extras such as certified copies, DTP, or glossary creation. :contentReference[oaicite:3]{index=3}</li>
+          <li><strong>Rush Fees (percentage):</strong> +30% / +50% based on delivery timelines. :contentReference[oaicite:4]{index=4}</li>
+          <li><strong>Volume Discounts (percentage):</strong> –5% / –10% / –15% for larger word volumes. :contentReference[oaicite:5]{index=5}</li>
+          <li><strong>Currency Conversion:</strong> Real-time FX rate applied to quote in your preferred currency. :contentReference[oaicite:6]{index=6}</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Quick Examples</h2>
+        <p><strong>Example 1 (Standard):</strong> Base €0.12/word × Language 1.2 × Service 1.0 → €0.144/word. With –10% volume discount → ~€0.13/word.</p>
+        <p><strong>Example 2 (Rush + Add-ons):</strong> Base €0.15/word × Language 1.5 × Service 1.2 → €0.27/word; Rush +30% → €0.35/word; Add-on (+€50) if requested.</p>
+        <p class="muted">For per-minute (AV) or per-hour (interpretation/training) work, we use an equivalent base rate for that service and apply the same multipliers.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- What impacts your quote -->
+  <section class="section alt">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>What Shapes Your Price</h2>
+        <ul>
+          <li>Language pair complexity & subject-matter domain</li>
+          <li>Service scope (translation, editing, LQA, transcreation)</li>
+          <li>Volume of content & format/engineering effort</li>
+          <li>Turnaround time (standard or expedited)</li>
+          <li>Optional add-ons (certification, glossary, DTP)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Transparent & Flexible</h2>
+        <p>You get an itemized estimate reflecting the exact multipliers and adjustments used. We’re happy to tune scope, timelines, or deliverables to match your budget and priorities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <h2>Ready for a tailored quote?</h2>
+        <p class="muted">Share your files, languages, timelines, and any add-ons you need. We’ll apply the same transparent logic and send you a precise estimate.</p>
+        <div class="cta">
+          <a class="btn btn-cta" href="/get-a-quote.html">Request a Custom Quote</a>
+          <a class="btn" href="/contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<include src="partials/footer.html"></include>
+
+</body>
+</html>

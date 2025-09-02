@@ -1,0 +1,191 @@
+<!doctype html><html lang='en'><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+<title>Home • Zlexy</title>
+<style>
+/* ---- Emoji icon tweaks (overrides) ---- */
+.services-icons, .industries-icons{
+  display:grid; gap:1.5rem; justify-items:center; margin-top:2rem;
+}
+.services-icons{ grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+
+.service-icon, .industry-card{
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  background:#fff; padding:1.2rem; border-radius:var(--radius);
+  border:1px solid #eaeaea; box-shadow:var(--shadow);
+  transition:all .25s ease; color:inherit;
+}
+.service-icon .icon, .industry-card .icon{
+  font-size:2.65rem; line-height:1; margin-bottom:.5rem; transition:transform .25s ease;
+}
+.service-icon span, .industry-card .label{
+  font-size:.95rem; color:#555; font-weight:600; transition:color .25s ease;
+}
+.service-icon:hover, .industry-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--green);
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+.service-icon:hover .icon, .industry-card:hover .icon{ transform:scale(1.06); }
+.service-icon:hover span, .industry-card:hover .label{ color:var(--green); }
+
+/* Keep alternating backgrounds correct:
+   Hero (image) → Why (alt/light) → Services (white) → Testimonials (white) → Trusted (alt) → Industries (white) */
+.section.alt{background:var(--light); border-top:1px solid #eaeaea; border-bottom:1px solid #eaeaea;}
+</style>
+</head><body>
+
+<include src="partials/header.html"></include>
+
+
+<main>
+<section class="hero hero--bg" role="banner">
+  <div class="container hero-inner">
+    <div>
+      <h1 data-i18n="hero.title">Precision-led, human-driven language solutions.</h1>
+	<p class="lead">Thoughtful Language. Trusted Delivery.</p>
+	<div class="cta">
+        <a class="btn btn-cta" data-i18n="hero.cta1" href="/get-a-quote.html">Get a Quote</a>
+        <a class="btn" data-i18n="hero.cta2" href="/services.html">Know More</a>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</section>
+
+<section class="section alt why why--image" role="region" aria-label="Why Choose Us">
+  <div class="container">
+    <h2 data-i18n="home.why">Why Choose Us</h2>
+    <div class="why-copy">
+      <p class="big">
+        <strong>At Zlexy, we believe that great translation is more than just words; it's connection, clarity, and commitment.</strong>
+      </p>
+      <p class="big">
+        We're a new-age language partner, built by a team of specialist linguists who care deeply about getting things right and not just grammatically, but culturally, emotionally, and professionally. Every project we undertake is treated with intent, nuance, and the respect it deserves. Whether it's a tightly regulated life sciences document, a global marketing campaign, or multilingual content with a climate mission, we focus on precision, purpose, and people.
+      </p>
+      <p class="big">
+        And yes, we're just getting started, but we're doing it with full hearts, high standards, and a promise to always go the extra mile.
+      </p>
+      <p class="big">
+        <strong>Looking for a language partner who listens, delivers, and cares?</strong><br>
+      </p>
+	<p>Let's talk. We'd love to help you make your message matter.</p>
+
+      <div class="cta">
+        <a class="btn" href="/contact.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Services on white, emoji icons, hover retained -->
+<section id="services" class="section">
+  <div class="container">
+    <h2 data-i18n="home.services">Our Services</h2>
+    <div class="services-icons">
+      <a href="/translation.html" class="service-icon">
+        <div class="icon" aria-hidden="true">📝</div>
+        <span>Translation</span>
+      </a>
+      <a href="/localization.html" class="service-icon">
+        <div class="icon" aria-hidden="true">🌍</div>
+        <span>Localization</span>
+      </a>
+      <a href="/lqa.html" class="service-icon">
+        <div class="icon" aria-hidden="true">🔎</div>
+        <span>LQA</span>
+      </a>
+      <a href="/micro-translations.html" class="service-icon">
+        <div class="icon" aria-hidden="true">⚡</div>
+        <span>Micro Translation</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section id="testimonials" class="section testimonials alt">
+  <div class="container">
+    <h2 data-i18n="home.testimonials">Testimonials</h2>
+    <div class="testimonial-view">
+      <div class="testimonial" data-idx="0">
+        <blockquote>“Zlexy helped us localize complex clinical content without losing nuance.”</blockquote>
+        <div class="attribution">— Marketing Director, A Life Sciences Company</div>
+      </div>
+      <div class="testimonial" data-idx="1">
+        <blockquote>“Turnaround was fast, and quality was consistently excellent.”</blockquote>
+        <div class="attribution">— Technical Program Manager, A Gaming Company</div>
+      </div>
+      <div class="testimonial" data-idx="2">
+        <blockquote>“Their transcreation captured our brand voice perfectly across markets.”</blockquote>
+        <div class="attribution">— Head of Brand, A leading IT Organization</div>
+      </div>
+      <div class="t-controls">
+        <button class="t-prev" aria-label="Previous">←</button>
+        <button class="t-next" aria-label="Next">→</button>
+      </div>
+    </div>
+<!--    <div class="actions" style="margin-top:1rem"><a class="btn btn-strong" href="/case-studies.html">Read Case Studies</a><div class="notice">See how we delivered results →</div></div> -->
+  </div>
+</section>
+
+<section class="section trust" id="trusted">
+  <div class="container">
+    <h2>We work with the best!</h2>
+    <div class="logo-row">
+      <img src="/assets/img/clients/ICONplc.svg.png" alt="Iconplc.Svg">
+      <img src="/assets/img/clients/RWS_logo.svg" alt="Rws Logo">
+      <img src="/assets/img/clients/TransPerfect-logo.png" alt="Transperfect Logo">
+      <img src="/assets/img/clients/acolad-logo-vector.png" alt="Acolad Logo Vector">
+    </div>
+  </div>
+</section>
+
+<!-- Industries on white, emoji icons, hover retained -->
+<section id="industries" class="section industries alt">
+  <div class="container">
+    <h2 data-i18n="home.industries">Industries We Serve</h2>
+    <div class="industries-icons">
+      <a href="/medical-life-sciences.html" class="industry-card">
+        <div class="icon" aria-hidden="true">🧬</div>
+        <div class="label">Medical & Life Sciences</div>
+      </a>
+      <a href="/legal.html" class="industry-card">
+        <div class="icon" aria-hidden="true">⚖️</div>
+        <div class="label">Legal</div>
+      </a>
+      <a href="/banking-finance.html" class="industry-card">
+        <div class="icon" aria-hidden="true">💹</div>
+        <div class="label">Banking & Finance</div>
+      </a>
+      <a href="/industrial-manufacturing.html" class="industry-card">
+        <div class="icon" aria-hidden="true">🏭</div>
+        <div class="label">Industrial Manufacturing</div>
+      </a>
+      <a href="/automotive.html" class="industry-card">
+        <div class="icon" aria-hidden="true">🚗</div>
+        <div class="label">Automotive</div>
+      </a>
+      <a href="/it-software.html" class="industry-card">
+        <div class="icon" aria-hidden="true">💻</div>
+        <div class="label">IT & Software</div>
+      </a>
+      <a href="/tourism-hospitality.html" class="industry-card">
+        <div class="icon" aria-hidden="true">✈️</div>
+        <div class="label">Tourism & Hospitality</div>
+      </a>
+      <a href="/fashion-luxury.html" class="industry-card">
+        <div class="icon" aria-hidden="true">👗</div>
+        <div class="label">Fashion & Luxury</div>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<include src="partials/footer.html"></include>
+
+</body></html>

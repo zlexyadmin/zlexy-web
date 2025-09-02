@@ -1,0 +1,14 @@
+{
+  "name": "zlexy-site",
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild": "rm -rf dist && mkdir -p dist",
+    "build": "posthtml \"src/**/*.html\" -o dist",
+    "postbuild": "if [ -d assets ]; then mkdir -p dist/assets && cp -r assets/* dist/assets/; fi"
+  },
+  "devDependencies": {
+    "posthtml": "0.16.6",
+    "posthtml-cli": "0.10.0",
+    "posthtml-include": "2.0.1"
+  }
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <title>For Freelancers • Zlexy</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Join Zlexy’s global network of verified language professionals. See our vetting process, freelancer benefits, supported tools, and apply in minutes.">
+  <meta name="keywords" content="freelance translator jobs, language services recruitment, join translator platform, translator vetting process, CAT tools for freelancers">
+
+  <!-- Optional: Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zlexy OÜ",
+    "logo": "/assets/img/zlexy-logo.png",
+    "url": "https://zlexy.com",
+    "email": "contactus@zlexy.com"
+  }
+  </script>
+</head>
+<body>
+
+<include src="partials/header.html"></include>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Work With a World-Class Language Service Provider</h1>
+      <p class="lead">Whether you’re a translator, editor, transcreator, or interpreter — we offer meaningful work, fair compensation, and a supportive, tech-enabled environment.</p>
+    </div>
+  </section>
+
+  <!-- Value & Vetting -->
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>We Value Your Expertise</h2>
+        <p>Join a global network of verified language professionals. We match you with projects that fit your language pair, domain strengths, and preferred tools — so you can do your best work consistently.</p>
+      </div>
+
+      <div class="card">
+        <h2>Our Recruitment &amp; Vetting Process</h2>
+        <ol>
+          <li>Application submission</li>
+          <li>Language &amp; domain assessment</li>
+          <li>Sample task &amp; senior linguist review</li>
+          <li>Confidentiality agreement &amp; onboarding</li>
+        </ol>
+        <p class="muted">Successful applicants join a vetted community with access to stable project flow and resources.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits & Tech -->
+  <section class="section alt">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Benefits of Working With Us</h2>
+        <ul>
+          <li>📆 Flexible schedules</li>
+          <li>💰 Competitive per-word &amp; hourly rates</li>
+          <li>🛠️ Access to paid CAT tools &amp; glossaries</li>
+          <li>📈 Feedback &amp; growth opportunities</li>
+          <li>🌍 Projects for global, high-visibility brands</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Technology That Supports You</h2>
+        <p>We leverage cloud platforms and real-time communication to simplify delivery and keep you connected.</p>
+        <h3 class="h4">Supported Tools</h3>
+        <ul>
+          <li>Trados Studio</li>
+          <li>MemoQ</li>
+          <li>Phrase TMS</li>
+          <li>Xbench QA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apply -->
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <h2>Ready to Join? Apply in Minutes</h2>
+        <form name="freelancer-apply" method="POST" data-netlify="true" enctype="multipart/form-data" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="freelancer-apply">
+          <p class="sr-only">
+            <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+          </p>
+
+          <div class="grid-2">
+            <div class="form-field">
+              <label for="full-name">Full Name</label>
+              <input id="full-name" name="name" type="text" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email ID</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cv">Upload CV (PDF/DOC)</label>
+            <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" required>
+          </div>
+
+          <div class="form-field checkbox-row">
+            <input id="consent" type="checkbox" name="consent" value="yes" required>
+            <label for="consent">I consent to Zlexy storing my information for recruitment purposes.</label>
+          </div>
+
+
+          <div class="cta">
+            <button class="btn btn-cta" type="submit">Submit Application</button>
+            <a class="btn btn-cta" href="/contact.html">Contact Us</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<include src="partials/footer.html"></include>
+
+</body>
+</html>
