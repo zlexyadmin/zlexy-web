@@ -7,41 +7,94 @@
 
 <main>
 <section class="hero"><div class="container"><h1>Get a Quote</h1><p class="lead">Share a few details to receive a tailored estimate.</p></div></section>
-<section class="section"><div class="container"><div class="card">
-<form name="request-quote" method="POST" enctype="multipart/form-data" netlify netlify-honeypot="bot-field">
+<section class="section"><div class="container">
+  <div class="card">
+    <!-- Success message (initially hidden) -->
+<div id="quote-success" class="alert success" role="status" aria-live="polite" hidden>
+  <h3 tabindex="-1">Thanks! Your request has been sent.</h3>
+  <p>We’ll review your details and email you a tailored estimate within one business day.</p>
+  <ul class="success-points">
+    <li>Need to add files or context? You can reply to our email.</li>
+    <li>Urgent project? Call us or use the <a href="/contact.html">Contact</a> page.</li>
+  </ul>
+  <div class="cta">
+    <button class="btn" id="new-request">Send another request</button>
+    <a class="btn btn-cta" href="/contact.html">Contact Us</a>
+  </div>
+</div>
+
+<form name="request-quote"
+      method="POST"
+      enctype="multipart/form-data"
+      netlify
+      netlify-honeypot="bot-field"
+      action="/get-a-quote.html#success">
+
   <input type="hidden" name="form-name" value="request-quote">
   <p class="visually-hidden"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
 
   <div class="form-row">
-    <div><label>Name<input type="text" name="name" required></label></div>
-    <div><label>Company<input type="text" name="company"></label></div>
+    <div><label>Name
+      <input type="text" name="name" autocomplete="name" placeholder="Full name" required>
+    </label></div>
+    <div><label>Company
+      <input type="text" name="company" autocomplete="organization" placeholder="Company (optional)">
+    </label></div>
   </div>
+
   <div class="form-row">
-    <div><label>Email<input type="email" name="email" required></label></div>
-    <div><label>Phone<input type="tel" name="phone"></label></div>
+    <div><label>Email
+      <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+    </label></div>
+    <div><label>Phone
+      <input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+91 …">
+    </label></div>
   </div>
+
   <div class="form-row">
     <div><label>Source Language<input type="text" name="source" required></label></div>
     <div><label>Target Language<input type="text" name="target" required></label></div>
   </div>
   <div class="form-row">
-    <div><label>Service Type<select name="service_type">
-      <option>Transcreation</option><option>Translation</option><option>Interpretation</option>
-      <option>Localization</option><option>Language Training</option><option>Micro Translations</option>
-    </select></label></div>
-    <div><label>Domain<select name="domain">
-      <option>General</option><option>Medical</option><option>Legal</option><option>Finance</option>
-      <option>Manufacturing</option><option>Automotive</option><option>IT & Software</option>
-      <option>Tourism</option><option>Fashion & Luxury</option>
-    </select></label></div>
-  </div>
-  <div class="form-row">
-    <div><label>Word Count / Duration<input type="number" name="volume" min="0" step="0.01"></label></div>
-    <div><label>Deadline<input type="date" name="deadline"></label></div>
+    <div><label>Service Type
+      <select name="service_type" required>
+        <option value="" disabled selected>Select a service</option>
+        <option>Transcreation</option><option>Translation</option><option>Interpretation</option>
+        <option>Localization</option><option>Language Training</option><option>Micro Translations</option>
+      </select>
+    </label></div>
+
+    <div><label>Domain
+      <select name="domain" required>
+        <option value="" disabled selected>Select a domain</option>
+        <option>General</option><option>Medical</option><option>Legal</option><option>Finance</option>
+        <option>Manufacturing</option><option>Automotive</option><option>IT & Software</option>
+        <option>Tourism</option><option>Fashion & Luxury</option>
+      </select>
+    </label></div>
   </div>
 
-  <label>File Upload<input type="file" name="file"></label>
-  <label>Notes<textarea name="notes"></textarea></label>
+  <div class="form-row">
+    <div><label>Word Count / Duration
+      <input type="number" name="volume" min="0" step="1" placeholder="e.g., 1,200 words or 30 min audio">
+    </label></div>
+    <div><label>Deadline
+      <input type="date" name="deadline">
+    </label></div>
+  </div>
+
+
+  <label>File Upload
+    <input type="file" name="file" multiple
+      accept=".pdf,.doc,.docx,.rtf,.txt,
+              .ppt,.pptx,.xls,.xlsx,.csv,
+              .srt,.vtt,.html,.htm,.xml">
+  </label>
+
+  <label>Notes
+    <textarea name="notes" placeholder="Project context, audience, tone, file-specific notes…"></textarea>
+  </label>
+
 
   <label><input type="checkbox" name="consent" required> I consent to processing my data for this request.</label>
   <div data-netlify-recaptcha="true"></div>
@@ -49,7 +102,10 @@
   <div class="form-actions"><button class="btn btn-cta" type="submit">Submit</button></div>
   <p class="muted" style="margin-top:.8rem">Prefer not to share details? <a href="/contact.html">Contact Us</a> instead and we’ll respond quickly.</p>
 </form></div>
-</div></section>
+</div>
+
+
+</section>
 </main>
 <include src="partials/footer.html"></include>
 </body></html>

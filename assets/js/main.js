@@ -216,3 +216,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const success = document.getElementById("quote-success");
+  const form = document.querySelector('form[name="request-quote"]');
+  const newReq = document.getElementById("new-request");
+
+  // If we arrived via Netlify redirect with #success, reveal success and hide form
+  if (location.hash === "#success" && success && form) {
+    success.hidden = false;          // reveal
+    form.classList.add("is-hidden"); // hide form
+    // focus the success heading for screen readers and keyboard users
+    const h3 = success.querySelector("h3");
+    if (h3) h3.focus();
+  }
+
+  // Allow sending another request without keeping the #success in the URL
+  if (newReq && success && form) {
+    newReq.addEventListener("click", function () {
+      // clear hash and show form again
+      history.replaceState(null, "", location.pathname);
+      success.hidden = true;
+      form.classList.remove("is-hidden");
+      // reset the form to blank
+      form.reset();
+      // move focus to the first field for convenience
+      const firstInput = form.querySelector("input, select, textarea");
+      if (firstInput) firstInput.focus();
+    });
+  }
+});

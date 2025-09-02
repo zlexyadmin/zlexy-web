@@ -664,3 +664,77 @@ form .btn-cta {
   font-size: 0.95rem;
   font-weight: 600;
 }
+
+/* --- Get a Quote form layout & rhythm --- */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;                /* horizontal gap between paired fields */
+  margin-bottom: 1rem;      /* vertical gap between rows */
+}
+
+/* Labels in this page wrap inputs; give inner inputs full width */
+.form-row label {
+  display: block;
+  font-weight: 500;
+}
+.form-row input,
+.form-row select,
+.form-row textarea,
+label > input,
+label > select,
+label > textarea {
+  width: 100%;
+  margin-top: 0.35rem;
+}
+
+/* Textarea sizing */
+textarea[name="notes"] {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* reCAPTCHA + actions spacing */
+[data-netlify-recaptcha] { margin-top: 1rem; }
+.form-actions { margin-top: 1rem; }
+
+/* Responsive: stack pairs on mobile */
+@media (max-width: 768px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* --- Success alert card --- */
+.alert.success {
+  background: #f5fff8;                  /* subtle green tint */
+  border: 1px solid #cfeede;
+  border-left: 4px solid var(--green);  /* brand accent */
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.alert.success h3 {
+  margin: 0 0 .35rem;
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
+.alert.success p {
+  margin: 0 0 .5rem;
+  color: #2c3e33;
+}
+
+.alert.success .success-points {
+  margin: 0 0 .75rem 1rem;
+  color: #2c3e33;
+}
+
+.alert.success .cta {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+/* Utility for simple hide/show via JS */
+.is-hidden { display: none !important; }
