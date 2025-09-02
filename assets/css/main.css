@@ -656,3 +656,11 @@ form .cta {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Ensure button consistency --- */
+form .btn,
+form .btn-cta {
+  font-family: inherit; /* use site-wide Inter font */
+  font-size: 0.95rem;
+  font-weight: 600;
+}
