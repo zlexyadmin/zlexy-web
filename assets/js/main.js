@@ -185,16 +185,6 @@ document.addEventListener('DOMContentLoaded', toggleSubmenusForMobile);
 document.addEventListener("DOMContentLoaded", function () {
   const cvInput = document.getElementById("cv");
   const cvFileName = document.getElementById("cv-filename");
-  const cvLabel = document.querySelector('label[for="cv"]');
-
-  // Clicking the "Choose File" pseudo-button triggers the hidden input
-  if (cvLabel && cvInput) {
-    cvLabel.addEventListener("click", function (e) {
-      // If user clicks the text part of the label, let it also open the picker
-      const afterButtonClicked = (e.target === cvLabel);
-      if (afterButtonClicked) cvInput.click();
-    });
-  }
 
   // Utility: middle-ellipsis truncation that tries to keep the extension visible
   function middleEllipsisFilename(name, max = 45) {
