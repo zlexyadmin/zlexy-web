@@ -489,10 +489,16 @@ backToTop span{font-size:18px;line-height:1}
   color: #444;
 }
 
-/* Highlight Zlexy column */
-.compare-table th:last-child,
+/* Highlight Zlexy column more strongly */
+.compare-table th:last-child {
+  background: var(--green);
+  color: #fff;
+  text-align: left;
+}
+
 .compare-table td:last-child {
-  background: #fdfefc; /* subtle off-white/greenish hue */
+  background: #f5fff8; /* very light green tint */
+  font-weight: 500;
   border-left: 2px solid var(--green);
 }
 
