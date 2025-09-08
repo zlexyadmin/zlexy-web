@@ -7,8 +7,9 @@
     "postbuild": "if [ -d assets ]; then mkdir -p dist/assets && cp -r assets/* dist/assets/; fi"
   },
   "devDependencies": {
+    "@netlify/plugin-sitemap": "^0.8.1",
     "posthtml": "0.16.6",
-    "posthtml-cli": "0.10.0",
+    "posthtml-cli": "^0.7.7",
     "posthtml-include": "2.0.1"
   }
 }

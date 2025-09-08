@@ -1,6 +1,31 @@
+# netlify.toml
+
 [build]
   command = "npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
+
+# ─────────────────────────────────────────────
+# Auto-generate sitemap.xml on every deploy
+# ─────────────────────────────────────────────
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+  # Inputs customize the generated URLs & coverage
+  [plugins.inputs]
+  baseUrl = "https://zlexy.com"   # your canonical domain
+  prettyURLs = true                # output /about/ instead of /about.html
+  trailingSlash = true             # keep trailing slash to match Netlify's pretty URLs
+  changeFreq = "weekly"
+  priority = 0.5
+  # Exclude non-canonical/utility pages (adjust as needed)
+  exclude = [
+    "**/drafts/**",
+    "assets/**",
+    "thank-you.html",
+    "success.html",
+    "contact-success.html",
+    "get-quote-success.html"
+  ]
